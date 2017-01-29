@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PopularMoviesDemo</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_movie_detail">MovieDetailActivity</string>
+    <string name="release_date">Release Date:</string>
+    <string name="synopsis">Storyline:</string>
+    <string name="sort_select">Sort Movies By:</string>
+    <string name="choose">Select</string>
+</resources>
