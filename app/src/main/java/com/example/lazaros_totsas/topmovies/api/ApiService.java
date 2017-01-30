@@ -1,6 +1,6 @@
-package com.example.lazaros_totsas.topmovies.Api;
+package com.example.lazaros_totsas.topmovies.api;
 
-import com.example.lazaros_totsas.topmovies.POJO.MoviesResponse;
+import com.example.lazaros_totsas.topmovies.pojo.MoviesResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

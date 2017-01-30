@@ -1,4 +1,4 @@
-package com.example.lazaros_totsas.topmovies.POJO;
+package com.example.lazaros_totsas.topmovies.pojo;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

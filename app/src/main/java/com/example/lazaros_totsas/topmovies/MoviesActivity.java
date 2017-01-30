@@ -12,14 +12,13 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.example.lazaros_totsas.topmovies.Adapter.MovieAdapter;
-import com.example.lazaros_totsas.topmovies.Api.ApiClient;
-import com.example.lazaros_totsas.topmovies.POJO.Movie;
-import com.example.lazaros_totsas.topmovies.Api.ApiService;
-import com.example.lazaros_totsas.topmovies.POJO.MoviesResponse;
+import com.example.lazaros_totsas.topmovies.adapter.MovieAdapter;
+import com.example.lazaros_totsas.topmovies.api.ApiClient;
+import com.example.lazaros_totsas.topmovies.pojo.Movie;
+import com.example.lazaros_totsas.topmovies.api.ApiService;
+import com.example.lazaros_totsas.topmovies.pojo.MoviesResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +32,7 @@ public class MoviesActivity extends AppCompatActivity implements MovieAdapter.Mo
     private RecyclerView mRecyclerView;
     private MovieAdapter mAdapter;
     private ImageView mImageView;
+    private int sortSelection = 1;
     private static final String TAG = MoviesActivity.class.getSimpleName();
 
 
@@ -58,15 +58,17 @@ public class MoviesActivity extends AppCompatActivity implements MovieAdapter.Mo
                         .items(R.array.preference_values)
                         .itemsColor(ContextCompat.getColor(MoviesActivity.this, R.color.colorPrimary))
                         .positiveColor(ContextCompat.getColor(MoviesActivity.this, R.color.colorPrimaryDark))
-                        .itemsCallbackSingleChoice(-1, new MaterialDialog.ListCallbackSingleChoice() {
+                        .itemsCallbackSingleChoice(sortSelection, new MaterialDialog.ListCallbackSingleChoice() {
                             @Override
                             public boolean onSelection(MaterialDialog dialog, View view, int which, CharSequence text) {
                                 switch (which) {
                                     case 0:
                                         getTopRatedMovies();
+                                        sortSelection = 0;
                                         break;
                                     case 1:
                                         getMostPopularMovies();
+                                        sortSelection = 1;
                                         break;
                                 }
                                 return true;
@@ -110,7 +112,6 @@ public class MoviesActivity extends AppCompatActivity implements MovieAdapter.Mo
             });
         } catch (Exception e) {
             Log.d("Error",e.getMessage());
-            Toast.makeText(this,e.toString(),Toast.LENGTH_LONG);
         }
     }
     private void getMostPopularMovies() {
@@ -133,7 +134,6 @@ public class MoviesActivity extends AppCompatActivity implements MovieAdapter.Mo
             });
         } catch (Exception e) {
             Log.d("Error",e.getMessage());
-            Toast.makeText(this,e.toString(),Toast.LENGTH_LONG);
         }
     }
 

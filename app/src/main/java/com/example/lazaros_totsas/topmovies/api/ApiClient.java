@@ -1,7 +1,18 @@
-package com.example.lazaros_totsas.topmovies.Api;
+package com.example.lazaros_totsas.topmovies.api;
 
+import android.util.Log;
+
+import com.example.lazaros_totsas.topmovies.pojo.Movie;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by ilarrougos-imac on 27/01/17.

@@ -1,4 +1,4 @@
-package com.example.lazaros_totsas.topmovies.Adapter;
+package com.example.lazaros_totsas.topmovies.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.example.lazaros_totsas.topmovies.POJO.Movie;
+import com.example.lazaros_totsas.topmovies.pojo.Movie;
 import com.example.lazaros_totsas.topmovies.R;
 import com.squareup.picasso.Picasso;
 

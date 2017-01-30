@@ -7,7 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.lazaros_totsas.topmovies.POJO.Movie;
+import com.example.lazaros_totsas.topmovies.pojo.Movie;
 import com.github.edsergeev.TextFloatingActionButton;
 import com.squareup.picasso.Picasso;
 
@@ -39,6 +39,7 @@ public class MovieDetailsActivity extends AppCompatActivity{
         fab = (TextFloatingActionButton) findViewById(R.id.fab);
         fab.setText(mMovie.getVoteAverage().toString()+"/10");
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         CollapsingToolbarLayout toolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
         toolbarLayout.setTitle(mMovie.getTitle());
 
