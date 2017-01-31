@@ -1,6 +1,7 @@
 package com.example.lazaros_totsas.topmovies;
 
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -24,6 +25,7 @@ public class MovieDetailsActivity extends AppCompatActivity{
     private ImageView poster;
     private TextView description;
     private TextView releaseDate;
+    private AppBarLayout collapsingToolbarLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,21 @@ public class MovieDetailsActivity extends AppCompatActivity{
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         fab = (TextFloatingActionButton) findViewById(R.id.fab);
+        collapsingToolbarLayout = (AppBarLayout) findViewById(R.id.app_bar);
+
+        collapsingToolbarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (Math.abs(verticalOffset) == appBarLayout.getTotalScrollRange()) {
+                    //fabText.setVisibility(View.GONE);
+                } else if (verticalOffset == 0) {
+                    //fabText.setVisibility(View.VISIBLE);
+                } else {
+                    //fabText.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
         fab.setText(mMovie.getVoteAverage().toString()+"/10");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
